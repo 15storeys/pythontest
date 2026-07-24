@@ -1,6 +1,7 @@
 STONE_TO_KG = 6.35029
 POUND_TO_KG = 0.453592
 KG_TO_STONE = 1 / STONE_TO_KG
+INCH_TO_CM = 2.54
 
 
 def stones_pounds_to_kg(stones, pounds):
@@ -38,10 +39,22 @@ def stones_pounds_to_pounds_prompt():
     print(f"{stones} st {pounds} lb = {total_pounds:.2f} lb")
 
 
+def feet_inches_to_cm(feet, inches):
+    return (feet * 12 + inches) * INCH_TO_CM
+
+
+def feet_inches_to_cm_prompt():
+    feet = float(input("Feet: "))
+    inches = float(input("Inches: "))
+    cm = feet_inches_to_cm(feet, inches)
+    print(f"{feet} ft {inches} in = {cm:.2f} cm")
+
+
 CONVERSIONS = {
     "1": ("Stones and pounds to kilograms", stones_pounds_to_kg_prompt),
     "2": ("Kilograms to stones and pounds", kg_to_stones_pounds_prompt),
     "3": ("Stones and pounds to pounds", stones_pounds_to_pounds_prompt),
+    "4": ("Feet and inches to centimeters", feet_inches_to_cm_prompt),
 }
 
 
