@@ -50,11 +50,22 @@ def feet_inches_to_cm_prompt():
     print(f"{feet} ft {inches} in = {cm:.2f} cm")
 
 
+def fahrenheit_to_celsius(fahrenheit):
+    return (fahrenheit - 32) * 5 / 9
+
+
+def fahrenheit_to_celsius_prompt():
+    fahrenheit = float(input("Fahrenheit: "))
+    celsius = fahrenheit_to_celsius(fahrenheit)
+    print(f"{fahrenheit} F = {celsius:.2f} C")
+
+
 CONVERSIONS = {
     "1": ("Stones and pounds to kilograms", stones_pounds_to_kg_prompt),
     "2": ("Kilograms to stones and pounds", kg_to_stones_pounds_prompt),
     "3": ("Stones and pounds to pounds", stones_pounds_to_pounds_prompt),
     "4": ("Feet and inches to centimeters", feet_inches_to_cm_prompt),
+    "5": ("Fahrenheit to Celsius", fahrenheit_to_celsius_prompt),
 }
 
 
